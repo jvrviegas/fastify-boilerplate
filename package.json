@@ -15,6 +15,8 @@
     "start": "npm run build:prod && cross-env NODE_ENV=production node dist/server.js",
     "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "build:prod": "cross-env NODE_ENV=production tsup src --out-dir dist",
+    "cloudrun:build": "gcloud builds submit --tag my-gcloud-project",
+    "cloudrun:deploy": "gcloud beta run deploy --image my-gcloud-project --platform managed",
     "check-types": "tsc --noemit",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/ && npm run check-types",
     "lint:fix": "npm run lint --fix"
